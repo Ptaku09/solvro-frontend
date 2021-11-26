@@ -1,12 +1,15 @@
 import styled from 'styled-components';
 
-export const OptionWrapper = styled.div`
+export const Wrapper = styled.div`
+  padding: 50px;
+`;
+
+export const ContentWrapper = styled.div`
   position: relative;
   color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.colors.grey};
   width: 300px;
   height: 350px;
-  margin: 50px;
   padding: 50px 0;
   display: flex;
   justify-content: flex-start;
