@@ -22,12 +22,7 @@ export const ContentWrapper = styled.div`
 
   &:after {
     content: '';
-    color: ${({ theme }) => theme.colors.grey};
     position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
     bottom: 0;
     width: 100%;
     height: 60px;
