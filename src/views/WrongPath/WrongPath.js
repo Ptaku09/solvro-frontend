@@ -1,7 +1,7 @@
 import React from 'react';
-import { ErrorType, StyledWrongPathIcon, TextWrapper, Wrapper } from 'views/WrongPathScreen/WrongPathScreen.styles';
+import { ErrorType, StyledWrongPathIcon, TextWrapper, Wrapper } from 'views/WrongPath/WrongPath.styles';
 
-const WrongPathScreen = () => {
+const WrongPath = () => {
   return (
     <Wrapper>
       <StyledWrongPathIcon />
@@ -13,4 +13,4 @@ const WrongPathScreen = () => {
   );
 };
 
-export default WrongPathScreen;
+export default WrongPath;

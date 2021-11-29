@@ -9,6 +9,7 @@ export const theme = {
     darkGrey: '#333847',
   },
   fontSize: {
+    huge: '50px',
     xxl: '34px',
     xl: '24px',
     l: '17px',

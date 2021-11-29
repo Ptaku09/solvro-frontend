@@ -1,6 +1,5 @@
 import React from 'react';
-import { Title } from 'components/atoms/Title/Title';
-import { StyledRocketIcon, TitleWrapper, TopBarWrapper, Wrapper } from 'components/templates/MainTemplate/MainTemplate.styles';
+import { StyledRocketIcon, TitleWrapper, TopBarWrapper, Wrapper, Title } from 'components/templates/MainTemplate/MainTemplate.styles';
 
 const MainTemplate = ({ children }) => {
   return (

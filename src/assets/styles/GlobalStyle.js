@@ -3,8 +3,15 @@ import { createGlobalStyle } from 'styled-components';
 export const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
+    overflow: scroll;
+    overflow-x: hidden;
   }
-  
+
+  ::-webkit-scrollbar {
+    width: 0;
+  }
+
+
   *, *::after, *::before {
     box-sizing: inherit;
   }
