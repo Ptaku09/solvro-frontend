@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { ReactComponent as FavoriteIcon } from 'assets/icons/add-to-favourites-svgrepo-com.svg';
-import { ReactComponent as ReadMore } from 'assets/icons/next-svgrepo-com.svg';
 import { Title } from 'components/atoms/Title/Title';
 
 export const StyledPhoto = styled.img`

@@ -16,7 +16,7 @@ const Articles = () => {
         behavior: 'smooth',
       });
     }, 500);
-  }, [isLoading]);
+  }, []);
 
   return (
     <Wrapper>
