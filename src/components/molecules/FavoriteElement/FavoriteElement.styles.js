@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { ReactComponent as RemoveFavorite } from 'assets/icons/remove-button-svgrepo-com.svg';
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -12,32 +11,25 @@ export const Wrapper = styled.div`
   border-top: 2px solid ${({ theme }) => theme.colors.darkGrey};
 `;
 
-export const Index = styled.h3`
-  font-size: ${({ theme }) => theme.fontSize.xl};
-  color: ${({ theme }) => theme.colors.darkGrey};
+export const StyledImg = styled.img`
+  width: 250px;
+  height: 150px;
+  margin: 0 20px 0 0;
+  border: 1px solid black;
+  box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
 `;
 
 export const Title = styled.h3`
   font-size: ${({ theme }) => theme.fontSize.l};
   color: ${({ theme }) => theme.colors.darkGrey};
   width: 70%;
+  margin: 0 20px;
+  padding: 10px;
+  box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.1);
 `;
 
 export const ButtonWrapper = styled.div`
   width: 160px;
   display: flex;
   justify-content: space-between;
-`;
-
-export const StyledRemoveFavorite = styled(RemoveFavorite)`
-  width: 50px;
-  height: 50px;
-  fill: ${({ theme }) => theme.colors.darkGrey};
-  cursor: pointer;
-  transition: transform 250ms;
-
-  &:hover {
-    fill: ${({ theme }) => theme.colors.grey};
-    transform: translateY(-3px);
-  }
 `;

@@ -9,12 +9,15 @@ export const handleAddToFavorites = (id) => {
   }
 };
 
-export const handleRemoveFromFavorites = (id) => {
+export const handleRemoveFromFavorites = (id, page = null) => {
   const data = JSON.parse(localStorage.getItem('favorites'));
 
   if (data.includes(id)) {
     data.splice(data.indexOf(id), 1);
     localStorage.setItem('favorites', JSON.stringify(data));
-    window.location.reload(false);
+
+    if (page) {
+      window.location.reload(false);
+    }
   }
 };

@@ -29,7 +29,7 @@ const Articles = () => {
         <ContentWrapper>
           <SectionTitle>Discover Space</SectionTitle>
           <ArticlesWrapper>
-            {data.length > 0 ? data.map(({ id, title, imageUrl }) => <Article key={id} id={id} title={title} imgSrc={imageUrl} />) : null}
+            {data && data.length > 0 ? data.map(({ id, title, imageUrl }) => <Article key={id} id={id} title={title} imgSrc={imageUrl} />) : null}
           </ArticlesWrapper>
         </ContentWrapper>
       )}

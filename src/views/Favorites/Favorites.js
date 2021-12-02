@@ -30,8 +30,8 @@ const Favorites = () => {
         ) : (
           <>
             <SectionTitle>Your Favorites</SectionTitle>
-            {articlesId.map((item, i) => (
-              <FavoriteElement key={item} index={i} id={item} />
+            {articlesId.map((item) => (
+              <FavoriteElement key={item} id={item} />
             ))}
           </>
         )}

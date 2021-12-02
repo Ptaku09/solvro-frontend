@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { useGetArticleByIdMutation } from 'store';
-import { StyledReadMore } from 'components/atoms/StyledReadMore/StyledReadMore';
+import { ReadMore } from 'components/atoms/ReadMore/ReadMore';
 import { handleRemoveFromFavorites } from 'handlers/favorites/favorites';
-import { ButtonWrapper, Index, StyledRemoveFavorite, Title, Wrapper } from 'components/molecules/FavoriteElement/FavoriteElement.styles';
+import { ButtonWrapper, StyledImg, Title, Wrapper } from 'components/molecules/FavoriteElement/FavoriteElement.styles';
+import { RemoveFavorite } from 'components/atoms/RemoveFavorite/RemoveFavorite';
 
-const FavoriteElement = ({ id, index }) => {
+const FavoriteElement = ({ id }) => {
   const [getArticle] = useGetArticleByIdMutation();
   const [article, setArticle] = useState({});
 
@@ -18,14 +20,18 @@ const FavoriteElement = ({ id, index }) => {
 
   return (
     <Wrapper>
-      <Index>{index + 1}.</Index>
+      <StyledImg src={article.imageUrl} alt={article.title} />
       <Title>{article.title}</Title>
       <ButtonWrapper>
-        <StyledRemoveFavorite onClick={() => handleRemoveFromFavorites(id)} />
-        <StyledReadMore isbig onClick={() => console.log('Read more')} />
+        <RemoveFavorite isbig onClick={() => handleRemoveFromFavorites(id, 'favorites')} />
+        <ReadMore isbig onClick={() => console.log('Read more')} />
       </ButtonWrapper>
     </Wrapper>
   );
+};
+
+FavoriteElement.propTypes = {
+  id: PropTypes.string.isRequired,
 };
 
 export default FavoriteElement;
