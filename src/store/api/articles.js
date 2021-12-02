@@ -11,7 +11,15 @@ export const articlesApi = createApi({
       query: () => '/articles?_limit=20',
       providesTags: ['Articles'],
     }),
+
+    getArticleById: builder.mutation({
+      query: (id) => ({
+        url: `/articles/${id}`,
+        method: 'GET',
+      }),
+      invalidatesTags: ['Articles'],
+    }),
   }),
 });
 
-export const { useGetArticlesQuery } = articlesApi;
+export const { useGetArticlesQuery, useGetArticleByIdMutation } = articlesApi;

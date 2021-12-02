@@ -8,7 +8,7 @@ import { Wrapper } from 'views/Home/Home.styles';
 const Home = () => {
   return (
     <Wrapper>
-      <Bookmark title="Favourites" Icon={BookmarkIcon} redirectTo="/test" />
+      <Bookmark title="Favorites" Icon={BookmarkIcon} redirectTo="/favorites" />
       <Bookmark title="New articles" Icon={AstronautIcon} redirectTo="/articles" />
       <Bookmark title="Check it out!" Icon={UniverseIcon} redirectTo="/test" />
     </Wrapper>

@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { useGetArticlesQuery } from 'store';
 import Article from 'components/molecules/Article/Article';
 import { Loading } from 'components/atoms/Loading/Loading';
-import { ArticlesWrapper, ContentWrapper, Reload, StyledReloadIcon, Title, Wrapper } from 'views/Articles/Articles.styles';
+import { ArticlesWrapper, ContentWrapper, Reload, StyledReloadIcon, Wrapper } from 'views/Articles/Articles.styles';
+import { SectionTitle } from 'components/atoms/SectionTitle/SectionTitle';
 
 const Articles = () => {
   const { data, isLoading } = useGetArticlesQuery();
@@ -15,7 +16,7 @@ const Articles = () => {
         behavior: 'smooth',
       });
     }, 500);
-  }, [isLoading]);
+  }, []);
 
   return (
     <Wrapper>
@@ -26,9 +27,9 @@ const Articles = () => {
         <Loading />
       ) : (
         <ContentWrapper>
-          <Title>Discover Space</Title>
+          <SectionTitle>Discover Space</SectionTitle>
           <ArticlesWrapper>
-            {data.length > 0 ? data.map(({ id, title, imageUrl }) => <Article key={id} title={title} imgSrc={imageUrl} />) : null}
+            {data && data.length > 0 ? data.map(({ id, title, imageUrl }) => <Article key={id} id={id} title={title} imgSrc={imageUrl} />) : null}
           </ArticlesWrapper>
         </ContentWrapper>
       )}

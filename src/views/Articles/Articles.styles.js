@@ -18,7 +18,7 @@ export const ArticlesWrapper = styled.div`
   &::before {
     content: '';
     width: 80%;
-    border: 1px solid ${({ theme }) => theme.colors.darkGrey};
+    border-top: 2px solid ${({ theme }) => theme.colors.darkGrey};
   }
 `;
 
@@ -28,11 +28,6 @@ export const ContentWrapper = styled.div`
   flex-direction: column;
   margin-top: 20px;
   width: 100%;
-`;
-
-export const Title = styled.h3`
-  font-size: ${({ theme }) => theme.fontSize.huge};
-  color: ${({ theme }) => theme.colors.darkGrey};
 `;
 
 export const Reload = styled.div`

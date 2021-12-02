@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ContentWrapper, StyledA, Wrapper } from 'components/molecules/Bookmark/Bookmark.styles';
 
 const Bookmark = ({ redirectTo, title, Icon }) => {
@@ -12,6 +13,12 @@ const Bookmark = ({ redirectTo, title, Icon }) => {
       </StyledA>
     </Wrapper>
   );
+};
+
+Bookmark.propTypes = {
+  redirectTo: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  Icon: PropTypes.element,
 };
 
 export default Bookmark;

@@ -12,7 +12,7 @@ export const theme = {
     huge: '50px',
     xxl: '34px',
     xl: '24px',
-    l: '17px',
+    l: '18px',
     m: '12px',
     s: '11px',
   },
