@@ -9,6 +9,7 @@ import { theme } from 'assets/styles/theme';
 import Articles from 'views/Articles/Articles';
 import { Provider } from 'react-redux';
 import { store } from 'store';
+import Favorites from 'views/Favorites/Favorites';
 
 const Root = () => {
   return (
@@ -19,6 +20,7 @@ const Root = () => {
             <GlobalStyle />
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/favorites" element={<Favorites />} />
               <Route path="/articles" element={<Articles />} />
               <Route path="*" element={<WrongPath />} />
             </Routes>

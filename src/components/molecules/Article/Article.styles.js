@@ -15,12 +15,10 @@ export const StyledFavoriteIcon = styled(FavoriteIcon)`
   width: 30px;
   height: 30px;
   transition: transform 250ms;
-`;
 
-export const StyledReadMore = styled(ReadMore)`
-  width: 30px;
-  height: 30px;
-  transition: transform 250ms;
+  &:hover {
+    transform: translateY(-3px);
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -29,7 +27,7 @@ export const Wrapper = styled.div`
   align-items: center;
   flex-direction: column;
   width: 400px;
-  height: 350px;
+  height: 420px;
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 20px;
   box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
@@ -42,17 +40,10 @@ export const Wrapper = styled.div`
   &:hover {
     background-color: ${({ theme }) => theme.colors.darkGrey};
     transform: translateY(-10px);
+    fill: ${({ theme }) => theme.colors.white};
 
     ${Title} {
       color: ${({ theme }) => theme.colors.white};
-    }
-
-    ${StyledFavoriteIcon} {
-      fill: ${({ theme }) => theme.colors.white};
-    }
-
-    ${StyledReadMore} {
-      fill: ${({ theme }) => theme.colors.white};
     }
 
     ${StyledPhoto} {
