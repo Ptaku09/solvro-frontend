@@ -7,8 +7,11 @@ export const articlesApi = createApi({
   }),
   tagTypes: ['Articles'],
   endpoints: (builder) => ({
-    getArticles: builder.query({
-      query: () => '/articles?_limit=20',
+    getArticles: builder.mutation({
+      query: (amount = 10) => ({
+        url: `/articles?_limit=${amount}`,
+        method: 'GET',
+      }),
       providesTags: ['Articles'],
     }),
 
@@ -22,4 +25,4 @@ export const articlesApi = createApi({
   }),
 });
 
-export const { useGetArticlesQuery, useGetArticleByIdMutation } = articlesApi;
+export const { useGetArticlesMutation, useGetArticleByIdMutation } = articlesApi;

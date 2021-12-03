@@ -11,4 +11,5 @@ export const RemoveFavorite = styled(RemoveFavoriteIcon)`
   &:hover {
     transform: translateY(-3px);
     fill: ${({ isbig, theme }) => (isbig ? theme.colors.grey : 'unset')};
+  }
 `;
