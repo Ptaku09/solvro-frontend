@@ -16,7 +16,7 @@ export const handleRemoveFromFavorites = (id, reload = false) => {
     data.splice(data.indexOf(id), 1);
     localStorage.setItem('favorites', JSON.stringify(data));
 
-    if (page) {
+    if (reload) {
       window.location.reload(false);
     }
   }

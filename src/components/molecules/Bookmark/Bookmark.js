@@ -18,7 +18,7 @@ const Bookmark = ({ redirectTo, title, Icon }) => {
 Bookmark.propTypes = {
   redirectTo: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  Icon: PropTypes.element,
+  Icon: PropTypes.object,
 };
 
 export default Bookmark;
