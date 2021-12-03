@@ -23,7 +23,7 @@ const FavoriteElement = ({ id }) => {
       <StyledImg src={article.imageUrl} alt={article.title} />
       <Title>{article.title}</Title>
       <ButtonWrapper>
-        <RemoveFavorite isbig onClick={() => handleRemoveFromFavorites(id, 'favorites')} />
+        <RemoveFavorite isbig onClick={() => handleRemoveFromFavorites(id, true)} />
         <ReadMore isbig onClick={() => console.log('Read more')} />
       </ButtonWrapper>
     </Wrapper>

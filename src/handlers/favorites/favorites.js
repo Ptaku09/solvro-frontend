@@ -9,7 +9,7 @@ export const handleAddToFavorites = (id) => {
   }
 };
 
-export const handleRemoveFromFavorites = (id, page = null) => {
+export const handleRemoveFromFavorites = (id, reload = false) => {
   const data = JSON.parse(localStorage.getItem('favorites'));
 
   if (data.includes(id)) {
