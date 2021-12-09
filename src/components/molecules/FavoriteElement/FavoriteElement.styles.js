@@ -12,6 +12,7 @@ export const Wrapper = styled.div`
 `;
 
 export const StyledImg = styled.img`
+  object-fit: cover;
   width: 250px;
   height: 150px;
   margin: 0 20px 0 0;

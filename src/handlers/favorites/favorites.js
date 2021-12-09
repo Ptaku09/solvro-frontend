@@ -4,7 +4,7 @@ export const handleAddToFavorites = (id) => {
   if (data === null) {
     localStorage.setItem('favorites', JSON.stringify([id]));
   } else if (!data.includes(id)) {
-    data.push(id);
+    data.unshift(id);
     localStorage.setItem('favorites', JSON.stringify(data));
   }
 };

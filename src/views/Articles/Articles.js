@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useGetArticlesMutation } from 'store';
+import { useGetArticleByIdMutation, useGetArticlesMutation } from 'store';
 import Article from 'components/molecules/Article/Article';
 import { Loading } from 'components/atoms/Loading/Loading';
 import {
@@ -16,12 +16,18 @@ import {
 import { SectionTitle } from 'components/atoms/SectionTitle/SectionTitle';
 import { useForm } from 'react-hook-form';
 import { Button } from 'components/atoms/Button/Button';
+import Modal from 'components/organisms/Modal/Modal';
+import useModal from 'components/organisms/Modal/useModal';
+import ArticleDetails from 'components/molecules/ArticleDetails/ArticleDetails';
 
 const Articles = () => {
   const [getArticles, props] = useGetArticlesMutation();
   const [articles, setArticles] = useState([]);
+  const [currentArticle, setCurrentArticle] = useState({});
   const [onPage, setOnPage] = useState(10);
   const { register, handleSubmit } = useForm();
+  const { isModalOpen, handleOpenModal, handleCloseModal } = useModal();
+  const [getArticle] = useGetArticleByIdMutation();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,6 +48,13 @@ const Articles = () => {
 
   const handleOnPageChange = ({ amount }) => {
     setOnPage(amount);
+  };
+
+  const handleOpenArticleDetails = async (id) => {
+    const article = await getArticle(id);
+
+    setCurrentArticle(article.data);
+    handleOpenModal();
   };
 
   return (
@@ -69,11 +82,16 @@ const Articles = () => {
           <SectionTitle>Discover Space</SectionTitle>
           <ArticlesWrapper>
             {articles && articles.length > 0
-              ? articles.map(({ id, title, imageUrl }) => <Article key={id} id={id} title={title} imgSrc={imageUrl} />)
+              ? articles.map(({ id, title, imageUrl }) => (
+                  <Article key={id} id={id} title={title} imgSrc={imageUrl} handleOpenArticleDetails={handleOpenArticleDetails} />
+                ))
               : null}
           </ArticlesWrapper>
         </ContentWrapper>
       )}
+      <Modal isOpen={isModalOpen} handleCloseModal={handleCloseModal}>
+        <ArticleDetails data={currentArticle} />
+      </Modal>
     </Wrapper>
   );
 };

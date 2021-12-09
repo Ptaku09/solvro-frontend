@@ -6,7 +6,7 @@ import { handleRemoveFromFavorites } from 'handlers/favorites/favorites';
 import { ButtonWrapper, StyledImg, Title, Wrapper } from 'components/molecules/FavoriteElement/FavoriteElement.styles';
 import { RemoveFavorite } from 'components/atoms/RemoveFavorite/RemoveFavorite';
 
-const FavoriteElement = ({ id }) => {
+const FavoriteElement = ({ id, handleOpenArticleDetails }) => {
   const [getArticle] = useGetArticleByIdMutation();
   const [article, setArticle] = useState({});
 
@@ -23,15 +23,15 @@ const FavoriteElement = ({ id }) => {
       <StyledImg src={article.imageUrl} alt={article.title} />
       <Title>{article.title}</Title>
       <ButtonWrapper>
-        <RemoveFavorite isbig onClick={() => handleRemoveFromFavorites(id, true)} />
-        <ReadMore isbig onClick={() => console.log('Read more')} />
+        <RemoveFavorite isbig="true" onClick={() => handleRemoveFromFavorites(id, true)} />
+        <ReadMore isbig="true" onClick={() => handleOpenArticleDetails(id)} />
       </ButtonWrapper>
     </Wrapper>
   );
 };
 
 FavoriteElement.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
 export default FavoriteElement;
