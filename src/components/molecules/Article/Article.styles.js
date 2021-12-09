@@ -5,6 +5,7 @@ import { Title } from 'components/atoms/Title/Title';
 export const StyledPhoto = styled.img`
   width: 350px;
   height: 200px;
+  object-fit: cover;
   border: 5px solid ${({ theme }) => theme.colors.black};
   box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
   transition: transform 250ms;

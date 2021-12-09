@@ -6,7 +6,7 @@ const MainTemplate = ({ children }) => {
     <Wrapper>
       <TopBarWrapper>
         <TitleWrapper href="/">
-          <Title>Space flight news</Title>
+          <Title>Spaceflight news</Title>
           <StyledRocketIcon />
         </TitleWrapper>
       </TopBarWrapper>

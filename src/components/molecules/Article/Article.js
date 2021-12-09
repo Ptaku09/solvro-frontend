@@ -6,7 +6,7 @@ import { ReadMore } from 'components/atoms/ReadMore/ReadMore';
 import { handleAddToFavorites, handleRemoveFromFavorites } from 'handlers/favorites/favorites';
 import { RemoveFavorite } from 'components/atoms/RemoveFavorite/RemoveFavorite';
 
-const Article = ({ id, title, imgSrc }) => {
+const Article = ({ id, title, imgSrc, handleOpenArticleDetails }) => {
   const [status, setStatus] = useState('');
 
   useEffect(() => {
@@ -19,27 +19,25 @@ const Article = ({ id, title, imgSrc }) => {
     }
   }, [id]);
 
+  const handleRemove = (e) => {
+    e.stopPropagation();
+    setStatus('normal');
+    handleRemoveFromFavorites(id);
+  };
+
+  const handleAdd = (e) => {
+    e.stopPropagation();
+    setStatus('favorite');
+    handleAddToFavorites(id);
+  };
+
   return (
-    <Wrapper>
+    <Wrapper onClick={() => handleOpenArticleDetails(id)}>
       <StyledPhoto src={imgSrc} alt={title} />
       <Title>{title}</Title>
       <ButtonWrapper>
-        {status === 'favorite' ? (
-          <RemoveFavorite
-            onClick={() => {
-              handleRemoveFromFavorites(id);
-              setStatus('normal');
-            }}
-          />
-        ) : (
-          <StyledFavoriteIcon
-            onClick={() => {
-              handleAddToFavorites(id);
-              setStatus('favorite');
-            }}
-          />
-        )}
-        <ReadMore onClick={() => console.log('Read more')} />
+        {status === 'favorite' ? <RemoveFavorite onClick={handleRemove} /> : <StyledFavoriteIcon onClick={handleAdd} />}
+        <ReadMore onClick={() => handleOpenArticleDetails(id)} />
       </ButtonWrapper>
     </Wrapper>
   );
