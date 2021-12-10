@@ -12,7 +12,7 @@ export const articlesApi = createApi({
         url: `/articles?_limit=${amount}`,
         method: 'GET',
       }),
-      providesTags: ['Articles'],
+      invalidatesTags: ['Articles'],
     }),
 
     getArticleById: builder.mutation({
@@ -22,7 +22,12 @@ export const articlesApi = createApi({
       }),
       invalidatesTags: ['Articles'],
     }),
+
+    getArticlesCount: builder.query({
+      query: () => '/articles/count',
+      providesTags: ['Articles'],
+    }),
   }),
 });
 
-export const { useGetArticlesMutation, useGetArticleByIdMutation } = articlesApi;
+export const { useGetArticlesMutation, useGetArticleByIdMutation, useGetArticlesCountQuery } = articlesApi;

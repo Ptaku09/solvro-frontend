@@ -72,7 +72,7 @@ const Articles = () => {
           <Button type="submit">Filter</Button>
         </StyledForm>
       </Amount>
-      <Reload onClick={() => window.location.reload(true)}>
+      <Reload onClick={() => window.location.reload()}>
         <StyledReloadIcon />
       </Reload>
       {props.isLoading ? (
