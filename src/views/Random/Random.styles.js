@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Title } from 'components/atoms/Title/Title';
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   position: relative;
   width: 100%;
   height: 100vh;

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useGetArticleByIdMutation, useGetArticlesCountQuery } from 'store';
 import ArticleDetails from 'components/molecules/ArticleDetails/ArticleDetails';
 import { Title } from 'components/atoms/Title/Title';
+import { Reload, Wrapper } from 'views/Random/Random.styles';
 
 const Random = () => {
   const [article, setArticle] = useState({});
