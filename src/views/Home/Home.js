@@ -10,7 +10,7 @@ const Home = () => {
     <Wrapper>
       <Bookmark title="Favorites" Icon={BookmarkIcon} redirectTo="/favorites" />
       <Bookmark title="New articles" Icon={AstronautIcon} redirectTo="/articles" />
-      <Bookmark title="Check it out!" Icon={UniverseIcon} redirectTo="/test" />
+      <Bookmark title="Check it out!" Icon={UniverseIcon} redirectTo="/random" />
     </Wrapper>
   );
 };

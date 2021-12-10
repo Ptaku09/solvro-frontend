@@ -10,6 +10,7 @@ import Articles from 'views/Articles/Articles';
 import { Provider } from 'react-redux';
 import { store } from 'store';
 import Favorites from 'views/Favorites/Favorites';
+import Random from 'views/Random/Random';
 
 const Root = () => {
   return (
@@ -22,6 +23,7 @@ const Root = () => {
               <Route path="/" element={<Home />} />
               <Route path="/favorites" element={<Favorites />} />
               <Route path="/articles" element={<Articles />} />
+              <Route path="/random" element={<Random />} />
               <Route path="*" element={<WrongPath />} />
             </Routes>
           </MainTemplate>

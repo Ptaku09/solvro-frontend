@@ -23,7 +23,7 @@ const Favorites = () => {
         left: 0,
         behavior: 'smooth',
       });
-    }, 500);
+    }, 250);
   }, []);
 
   const handleOpenArticleDetails = async (id) => {

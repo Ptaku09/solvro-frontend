@@ -7,11 +7,19 @@ export const Wrapper = styled.div`
   padding: 30px;
   display: grid;
   grid-template-columns: 2fr 1fr;
+
+  @media (max-width: 800px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 `;
 
 export const PhotoWrapper = styled.div`
   width: 100%;
   height: 100%;
+  max-height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
