@@ -6,8 +6,10 @@ const ArticleDetails = ({ data }) => {
   const [date, setDate] = useState({});
 
   useEffect(() => {
-    setDate(new Date(data.publishedAt));
-  }, [data.publishedAt]);
+    if (data !== undefined) {
+      setDate(new Date(data.publishedAt));
+    }
+  }, [data, data.publishedAt]);
 
   return (
     <Wrapper>

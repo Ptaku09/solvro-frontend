@@ -7,13 +7,21 @@ export const Wrapper = styled.div`
   height: 100vh;
   max-height: 100vh;
   padding: 50px;
+
+  @media only screen and (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    min-height: 100vh;
+    width: 100vw;
+  }
 `;
 
 export const Reload = styled.div`
   position: absolute;
   top: 0;
-  left: 50%;
-  right: 50%;
+  right: 45%;
   width: 160px;
   height: 60px;
   z-index: 0;
@@ -34,5 +42,9 @@ export const Reload = styled.div`
     ${Title} {
       color: ${({ theme }) => theme.colors.white};
     }
+  }
+
+  @media only screen and (max-width: 768px) {
+    right: 10%;
   }
 `;

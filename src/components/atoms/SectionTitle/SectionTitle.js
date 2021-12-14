@@ -8,4 +8,9 @@ export const SectionTitle = styled.h3`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  @media only screen and (max-width: 768px) {
+    font-size: ${({ theme }) => theme.fontSize.xxl};
+    margin-top: 60px;
+  }
 `;

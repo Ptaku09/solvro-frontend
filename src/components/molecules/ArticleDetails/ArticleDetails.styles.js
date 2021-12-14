@@ -8,11 +8,16 @@ export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 2fr 1fr;
 
-  @media (max-width: 800px) {
+  @media only screen and (max-width: 768px) {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 10px;
+    position: absolute;
+    top: 80px;
+    width: 85%;
+    height: 80%;
   }
 `;
 
@@ -64,6 +69,10 @@ export const DataWrapper = styled.div`
 
   p {
     font-size: ${({ theme }) => theme.fontSize.l};
+  }
+
+  @media only screen and (max-width: 768px) {
+    margin: 0;
   }
 `;
 

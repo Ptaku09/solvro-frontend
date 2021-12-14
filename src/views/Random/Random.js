@@ -24,7 +24,6 @@ const Random = () => {
       }, 250);
 
       if (res) {
-        console.log(res);
         setArticle(res.data);
       }
     });

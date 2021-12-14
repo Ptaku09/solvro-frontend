@@ -5,6 +5,10 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media only screen and (max-width: 768px) {
+    width: 100vw;
+  }
 `;
 
 export const ContentWrapper = styled.div`
@@ -18,6 +22,13 @@ export const ContentWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
   display: flex;
   flex-direction: column;
+
+  @media only screen and (max-width: 768px) {
+    width: 80%;
+    min-height: unset;
+    padding: 20px;
+    align-items: center;
+  }
 `;
 
 export const Redirect = styled.a`

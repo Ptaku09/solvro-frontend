@@ -17,6 +17,10 @@ export const ModalWrapper = styled(ReactModal)`
   flex-direction: column;
   border-radius: 20px;
   box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
+
+  @media only screen and (max-width: 768px) {
+    width: 95%;
+  }
 `;
 
 export const StyledButton = styled(Button)`

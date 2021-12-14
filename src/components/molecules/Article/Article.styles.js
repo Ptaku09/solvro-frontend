@@ -9,6 +9,12 @@ export const StyledPhoto = styled.img`
   border: 5px solid ${({ theme }) => theme.colors.black};
   box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
   transition: transform 250ms;
+
+  @media only screen and (max-width: 768px) {
+    margin-top: 5px;
+    width: 280px;
+    height: 160px;
+  }
 `;
 
 export const StyledFavoriteIcon = styled(FavoriteIcon)`
@@ -49,6 +55,11 @@ export const Wrapper = styled.div`
     ${StyledPhoto} {
       border: 5px solid ${({ theme }) => theme.colors.white};
     }
+  }
+
+  @media only screen and (max-width: 768px) {
+    width: 300px;
+    height: 350px;
   }
 `;
 
