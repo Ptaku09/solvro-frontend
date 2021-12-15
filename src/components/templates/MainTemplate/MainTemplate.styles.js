@@ -12,6 +12,7 @@ export const Wrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.lightGrey};
   overflow-y: scroll;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 `;
 
 export const TopBarWrapper = styled.div`
@@ -44,6 +45,10 @@ export const TitleWrapper = styled.a`
 export const Title = styled.h3`
   color: ${({ theme }) => theme.colors.darkBlue};
   font-size: ${({ theme }) => theme.fontSize.xxl};
+
+  @media only screen and (max-width: 300px) {
+    font-size: ${({ theme }) => theme.fontSize.xl};
+  }
 `;
 
 export const StyledRocketIcon = styled(RocketIcon)`

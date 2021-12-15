@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useGetArticleByIdMutation, useGetArticlesMutation } from 'store';
 import Article from 'components/molecules/Article/Article';
 import { Loading } from 'components/atoms/Loading/Loading';
@@ -44,9 +44,9 @@ const Articles = () => {
     });
   }, [getArticles, onPage]);
 
-  const handleOnPageChange = useCallback((amount) => {
+  const handleOnPageChange = (amount) => {
     setOnPage(amount);
-  }, []);
+  };
 
   const handleOpenArticleDetails = async (id) => {
     const article = await getArticle(id);

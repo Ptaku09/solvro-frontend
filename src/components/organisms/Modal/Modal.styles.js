@@ -19,7 +19,10 @@ export const ModalWrapper = styled(ReactModal)`
   box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
 
   @media only screen and (max-width: 768px) {
-    width: 95%;
+    max-width: 95vw;
+    max-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 `;
 
@@ -29,4 +32,8 @@ export const StyledButton = styled(Button)`
   width: 150px;
   height: 40px;
   padding: 10px;
+
+  @media only screen and (max-width: 768px) {
+    top: 10px;
+  }
 `;

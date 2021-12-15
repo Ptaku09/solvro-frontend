@@ -8,8 +8,8 @@ export const ContentWrapper = styled.div`
   position: relative;
   color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.colors.grey};
-  width: 300px;
-  height: 350px;
+  width: 22vw;
+  height: 48vh;
   padding: 50px 0;
   display: flex;
   justify-content: flex-start;
@@ -33,6 +33,10 @@ export const ContentWrapper = styled.div`
   &:hover {
     background-color: ${({ theme }) => theme.colors.darkGrey};
     transform: translateY(-10px);
+  }
+
+  @media only screen and (max-width: 786px) {
+    width: 90vw;
   }
 `;
 

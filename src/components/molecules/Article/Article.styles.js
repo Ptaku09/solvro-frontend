@@ -3,7 +3,7 @@ import { ReactComponent as FavoriteIcon } from 'assets/icons/add-to-favourites-s
 import { Title } from 'components/atoms/Title/Title';
 
 export const StyledPhoto = styled.img`
-  width: 350px;
+  width: 100%;
   height: 200px;
   object-fit: cover;
   border: 5px solid ${({ theme }) => theme.colors.black};
@@ -12,8 +12,8 @@ export const StyledPhoto = styled.img`
 
   @media only screen and (max-width: 768px) {
     margin-top: 5px;
-    width: 280px;
-    height: 160px;
+    width: 100%;
+    height: auto;
   }
 `;
 
@@ -32,8 +32,8 @@ export const Wrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  width: 400px;
-  height: 420px;
+  width: 28vw;
+  height: 58vh;
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 20px;
   box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
@@ -57,9 +57,8 @@ export const Wrapper = styled.div`
     }
   }
 
-  @media only screen and (max-width: 768px) {
-    width: 300px;
-    height: 350px;
+  @media only screen and (max-width: 786px) {
+    width: 90vw;
   }
 `;
 

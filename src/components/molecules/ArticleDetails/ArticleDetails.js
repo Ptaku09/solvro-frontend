@@ -4,23 +4,23 @@ import { DataWrapper, Info, Link, PhotoWrapper, StyledPhoto, StyledTitle, Wrappe
 
 const ArticleDetails = ({ data }) => {
   const [date, setDate] = useState({});
+  const [image, setImage] = useState('');
 
   useEffect(() => {
-    if (data !== undefined) {
-      setDate(new Date(data.publishedAt));
-    }
-  }, [data, data.publishedAt]);
+    setDate(new Date(data.publishedAt));
+    setImage(data.imageUrl);
+  }, [data]);
 
   return (
     <Wrapper>
       <PhotoWrapper>
-        <StyledPhoto src={data.imageUrl} onClick={() => window.open(data.imageUrl, '_blank')} />
+        <StyledPhoto src={image} onClick={() => window.open(image, '_blank')} />
       </PhotoWrapper>
       <DataWrapper>
         <StyledTitle>{data.title}</StyledTitle>
         <Info>Added: {date.toLocaleString()}</Info>
         <p>{data.summary}</p>
-        <Link onClick={() => window.open(data.url, '_blank')}>{data.url}</Link>
+        <Link onClick={() => window.open(data.url, '_blank')}>Read more...</Link>
       </DataWrapper>
     </Wrapper>
   );

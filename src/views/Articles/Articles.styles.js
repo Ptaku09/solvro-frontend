@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100vh;
 `;
 
 export const ArticlesWrapper = styled.div`
@@ -50,6 +51,10 @@ export const Reload = styled.div`
   @media only screen and (max-width: 768px) {
     right: 10%;
   }
+
+  @media only screen and (max-width: 300px) {
+    right: 3%;
+  }
 `;
 
 export const StyledReloadIcon = styled(ReloadIcon)`
@@ -86,6 +91,10 @@ export const Amount = styled.div`
 
   @media only screen and (max-width: 768px) {
     left: 10%;
+  }
+
+  @media only screen and (max-width: 300px) {
+    left: 3%;
   }
 `;
 

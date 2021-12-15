@@ -17,7 +17,8 @@ export const Wrapper = styled.div`
     position: absolute;
     top: 80px;
     width: 85%;
-    height: 80%;
+    min-height: 80%;
+    height: auto;
   }
 `;
 
@@ -32,13 +33,17 @@ export const PhotoWrapper = styled.div`
 
 export const StyledPhoto = styled.img`
   width: 100%;
-  height: auto;
+  height: 75vh;
   max-height: 80%;
   object-fit: cover;
   cursor: pointer;
   border-radius: 20px;
   border: 2px solid ${({ theme }) => theme.colors.darkGrey};
   box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
+
+  @media only screen and (max-width: 768px) {
+    height: 25vh;
+  }
 `;
 
 export const StyledTitle = styled(Title)`
@@ -62,6 +67,10 @@ export const Info = styled.div`
   align-items: flex-end;
   font-size: ${({ theme }) => theme.fontSize.m};
   color: ${({ theme }) => theme.colors.grey};
+
+  @media only screen and (max-width: 768px) {
+    text-align: center;
+  }
 `;
 
 export const DataWrapper = styled.div`
@@ -73,6 +82,7 @@ export const DataWrapper = styled.div`
 
   @media only screen and (max-width: 768px) {
     margin: 0;
+    width: 80%;
   }
 `;
 
