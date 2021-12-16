@@ -27,14 +27,18 @@ export const ContentWrapper = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-top: 20px;
+  margin-top: 30px;
   width: 100%;
+
+  @media only screen and (min-width: 768px) {
+    margin-top: 80px;
+  }
 `;
 
 export const Reload = styled.div`
   position: absolute;
   top: 0;
-  right: 50px;
+  right: 3%;
   width: 60px;
   height: 60px;
   z-index: 0;
@@ -48,12 +52,12 @@ export const Reload = styled.div`
   cursor: pointer;
   box-shadow: -3px -3px 10px 10px rgba(0, 0, 0, 0.1);
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (min-width: 300px) {
     right: 10%;
   }
 
-  @media only screen and (max-width: 300px) {
-    right: 3%;
+  @media only screen and (min-width: 768px) {
+    right: 50px;
   }
 `;
 
@@ -76,7 +80,7 @@ export const StyledReloadIcon = styled(ReloadIcon)`
 export const Amount = styled.div`
   position: absolute;
   top: 0;
-  right: 150px;
+  left: 3%;
   width: 200px;
   height: 60px;
   z-index: 0;
@@ -89,12 +93,13 @@ export const Amount = styled.div`
   font-size: ${({ theme }) => theme.fontSize.l};
   box-shadow: -3px -3px 10px 10px rgba(0, 0, 0, 0.1);
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (min-width: 300px) {
     left: 10%;
   }
 
-  @media only screen and (max-width: 300px) {
-    left: 3%;
+  @media only screen and (min-width: 768px) {
+    left: unset;
+    right: 150px;
   }
 `;
 

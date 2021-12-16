@@ -8,7 +8,7 @@ export const ContentWrapper = styled.div`
   position: relative;
   color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.colors.grey};
-  width: 22vw;
+  width: 90vw;
   height: 48vh;
   padding: 50px 0;
   display: flex;
@@ -35,8 +35,8 @@ export const ContentWrapper = styled.div`
     transform: translateY(-10px);
   }
 
-  @media only screen and (max-width: 786px) {
-    width: 90vw;
+  @media only screen and (min-width: 768px) {
+    width: 22vw;
   }
 `;
 

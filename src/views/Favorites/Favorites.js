@@ -51,7 +51,13 @@ const Favorites = () => {
         )}
       </ContentWrapper>
       <Modal isOpen={isModalOpen} handleCloseModal={handleCloseModal}>
-        <ArticleDetails data={currentArticle} />
+        <ArticleDetails
+          imageUrl={currentArticle.imageUrl}
+          title={currentArticle.title}
+          publishedAt={currentArticle.publishedAt}
+          desc={currentArticle.summary}
+          redaMore={currentArticle.url}
+        />
       </Modal>
     </Wrapper>
   );

@@ -17,23 +17,27 @@ export const ModalWrapper = styled(ReactModal)`
   flex-direction: column;
   border-radius: 20px;
   box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
+  max-width: 95vw;
+  max-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
 
-  @media only screen and (max-width: 768px) {
-    max-width: 95vw;
-    max-height: 100vh;
-    overflow-y: auto;
-    overflow-x: hidden;
+  @media only screen and (min-width: 768px) {
+    max-width: unset;
+    max-height: unset;
+    overflow-y: unset;
+    overflow-x: unset;
   }
 `;
 
 export const StyledButton = styled(Button)`
   position: absolute;
-  top: -20px;
+  top: 10px;
   width: 150px;
   height: 40px;
   padding: 10px;
 
-  @media only screen and (max-width: 768px) {
-    top: 10px;
+  @media only screen and (min-width: 768px) {
+    top: -20px;
   }
 `;
