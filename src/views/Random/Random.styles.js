@@ -2,18 +2,30 @@ import styled from 'styled-components';
 import { Title } from 'components/atoms/Title/Title';
 
 export const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  width: 100%;
-  height: 100vh;
+  width: 100vw;
+  height: auto;
   max-height: 100vh;
+  min-height: 100vh;
   padding: 50px;
+
+  @media only screen and (min-width: 768px) {
+    display: unset;
+    justify-content: unset;
+    align-items: unset;
+    height: 100vh;
+    min-height: unset;
+    width: 100%;
+  }
 `;
 
 export const Reload = styled.div`
   position: absolute;
   top: 0;
-  left: 50%;
-  right: 50%;
+  right: 10%;
   width: 160px;
   height: 60px;
   z-index: 0;
@@ -34,5 +46,9 @@ export const Reload = styled.div`
     ${Title} {
       color: ${({ theme }) => theme.colors.white};
     }
+  }
+
+  @media only screen and (min-width: 768px) {
+    right: 45%;
   }
 `;

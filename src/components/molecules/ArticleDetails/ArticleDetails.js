@@ -2,23 +2,23 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { DataWrapper, Info, Link, PhotoWrapper, StyledPhoto, StyledTitle, Wrapper } from 'components/molecules/ArticleDetails/ArticleDetails.styles';
 
-const ArticleDetails = ({ data }) => {
+const ArticleDetails = ({ imageUrl, title, publishedAt, desc, readMore }) => {
   const [date, setDate] = useState({});
 
   useEffect(() => {
-    setDate(new Date(data.publishedAt));
-  }, [data.publishedAt]);
+    setDate(new Date(publishedAt));
+  }, [publishedAt]);
 
   return (
     <Wrapper>
       <PhotoWrapper>
-        <StyledPhoto src={data.imageUrl} onClick={() => window.open(data.imageUrl, '_blank')} />
+        <StyledPhoto src={imageUrl} onClick={() => window.open(imageUrl, '_blank')} />
       </PhotoWrapper>
       <DataWrapper>
-        <StyledTitle>{data.title}</StyledTitle>
+        <StyledTitle>{title}</StyledTitle>
         <Info>Added: {date.toLocaleString()}</Info>
-        <p>{data.summary}</p>
-        <Link onClick={() => window.open(data.url, '_blank')}>{data.url}</Link>
+        <p>{desc}</p>
+        <Link onClick={() => window.open(readMore, '_blank')}>Read more...</Link>
       </DataWrapper>
     </Wrapper>
   );

@@ -5,17 +5,16 @@ import { Loading } from 'components/atoms/Loading/Loading';
 import {
   Amount,
   ArticlesWrapper,
+  Button,
   ContentWrapper,
+  Dropdown,
+  DropdownContainer,
+  Option,
   Reload,
-  StyledForm,
-  StyledLabel,
   StyledReloadIcon,
-  StyledSelect,
   Wrapper,
 } from 'views/Articles/Articles.styles';
 import { SectionTitle } from 'components/atoms/SectionTitle/SectionTitle';
-import { useForm } from 'react-hook-form';
-import { Button } from 'components/atoms/Button/Button';
 import Modal from 'components/organisms/Modal/Modal';
 import useModal from 'components/organisms/Modal/useModal';
 import ArticleDetails from 'components/molecules/ArticleDetails/ArticleDetails';
@@ -25,7 +24,6 @@ const Articles = () => {
   const [articles, setArticles] = useState([]);
   const [currentArticle, setCurrentArticle] = useState({});
   const [onPage, setOnPage] = useState(10);
-  const { register, handleSubmit } = useForm();
   const { isModalOpen, handleOpenModal, handleCloseModal } = useModal();
   const [getArticle] = useGetArticleByIdMutation();
 
@@ -46,7 +44,7 @@ const Articles = () => {
     });
   }, [getArticles, onPage]);
 
-  const handleOnPageChange = ({ amount }) => {
+  const handleOnPageChange = (amount) => {
     setOnPage(amount);
   };
 
@@ -60,17 +58,16 @@ const Articles = () => {
   return (
     <Wrapper>
       <Amount>
-        <StyledForm onSubmit={handleSubmit(handleOnPageChange)}>
-          <StyledLabel>On page: </StyledLabel>
-          <StyledSelect {...register('amount', { required: true })}>
-            <option value="10">10</option>
-            <option value="20">20</option>
-            <option value="30">30</option>
-            <option value="40">40</option>
-            <option value="50">50</option>
-          </StyledSelect>
-          <Button type="submit">Filter</Button>
-        </StyledForm>
+        <Dropdown>
+          <Button>On page: {onPage}</Button>
+          <DropdownContainer>
+            <Option onClick={() => handleOnPageChange(10)}>10</Option>
+            <Option onClick={() => handleOnPageChange(20)}>20</Option>
+            <Option onClick={() => handleOnPageChange(30)}>30</Option>
+            <Option onClick={() => handleOnPageChange(40)}>40</Option>
+            <Option onClick={() => handleOnPageChange(50)}>50</Option>
+          </DropdownContainer>
+        </Dropdown>
       </Amount>
       <Reload onClick={() => window.location.reload()}>
         <StyledReloadIcon />
@@ -90,7 +87,13 @@ const Articles = () => {
         </ContentWrapper>
       )}
       <Modal isOpen={isModalOpen} handleCloseModal={handleCloseModal}>
-        <ArticleDetails data={currentArticle} />
+        <ArticleDetails
+          imageUrl={currentArticle.imageUrl}
+          title={currentArticle.title}
+          publishedAt={currentArticle.publishedAt}
+          desc={currentArticle.summary}
+          redaMore={currentArticle.url}
+        />
       </Modal>
     </Wrapper>
   );
