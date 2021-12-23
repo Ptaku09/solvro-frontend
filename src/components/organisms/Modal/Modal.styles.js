@@ -2,7 +2,9 @@ import styled from 'styled-components';
 import ReactModal from 'react-modal';
 import { Button } from 'components/atoms/Button/Button';
 
-export const ModalWrapper = styled(ReactModal)`
+export const ModalWrapper = styled(ReactModal).attrs({
+  closeTimeoutMS: 500,
+})`
   background-color: ${({ theme }) => theme.colors.white};
   outline: none;
   position: absolute;

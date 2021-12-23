@@ -39,7 +39,7 @@ const Favorites = () => {
         {articlesId === null || articlesId.length === 0 ? (
           <SectionTitle>
             No favorites :(
-            <Redirect href="/articles">Go to articles</Redirect>
+            <Redirect to="/articles">Go to articles</Redirect>
           </SectionTitle>
         ) : (
           <>

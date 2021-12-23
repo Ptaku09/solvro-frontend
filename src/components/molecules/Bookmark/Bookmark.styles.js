@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Wrapper = styled.div`
   padding: 50px;
@@ -40,7 +41,7 @@ export const ContentWrapper = styled.div`
   }
 `;
 
-export const StyledA = styled.a`
+export const StyledLink = styled(Link)`
   display: block;
   text-decoration: none;
 `;
