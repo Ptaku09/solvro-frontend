@@ -56,7 +56,7 @@ const Favorites = () => {
           title={currentArticle.title}
           publishedAt={currentArticle.publishedAt}
           desc={currentArticle.summary}
-          redaMore={currentArticle.url}
+          readMore={currentArticle.url}
         />
       </Modal>
     </Wrapper>

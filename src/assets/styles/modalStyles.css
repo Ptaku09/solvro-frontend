@@ -1,9 +1,8 @@
 .ReactModal__Overlay {
     opacity: 0;
-    transform: translateX(-100vw);
+    transform: translateX(-40vw);
     transition: all 500ms ease-in-out;
 }
-
 
 .ReactModal__Overlay--after-open {
     opacity: 1;

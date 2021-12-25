@@ -18,7 +18,7 @@ const ArticleDetails = ({ imageUrl, title, publishedAt, desc, readMore }) => {
         <StyledTitle>{title}</StyledTitle>
         <Info>Added: {date.toLocaleString()}</Info>
         <p>{desc}</p>
-        <Link onClick={() => window.open(readMore, '_blank')}>Read more...</Link>
+        <Link onClick={() => window.open(readMore, `${readMore}`)}>Read more...</Link>
       </DataWrapper>
     </Wrapper>
   );

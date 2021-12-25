@@ -1,11 +1,6 @@
 import React from 'react';
-import { ModalWrapper, StyledButton } from 'components/organisms/Modal/Modal.styles';
+import { ModalWrapper, overlay, StyledButton } from 'components/organisms/Modal/Modal.styles';
 import PropTypes from 'prop-types';
-
-const overlay = {
-  content: {},
-  overlay: { zIndex: 1000 },
-};
 
 const Modal = ({ children, isOpen, handleCloseModal }) => {
   return (

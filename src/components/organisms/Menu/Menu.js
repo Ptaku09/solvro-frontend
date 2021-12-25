@@ -1,12 +1,7 @@
+import 'assets/styles/modalStyles.css';
 import { useDispatch, useSelector } from 'react-redux';
-import 'components/organisms/Menu/styles.css';
 import { toggleMenu } from 'store';
-import { ModalWrapper, StyledLink } from 'components/organisms/Menu/Menu.styles';
-
-const overlay = {
-  content: {},
-  overlay: { zIndex: 10 },
-};
+import { ModalWrapper, overlay, StyledLink } from 'components/organisms/Menu/Menu.styles';
 
 const Menu = () => {
   const isOpen = useSelector((state) => state.menu);
@@ -17,7 +12,7 @@ const Menu = () => {
   };
 
   return (
-    <ModalWrapper isOpen={isOpen} style={overlay} appElement={document.getElementById('root')}>
+    <ModalWrapper isOpen={isOpen} onRequestClose={handleCloseMenu} style={overlay} appElement={document.getElementById('root')}>
       <StyledLink to="/" onClick={handleCloseMenu}>
         Home
       </StyledLink>
