@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Wrapper = styled.div`
   padding: 50px;
@@ -37,10 +38,11 @@ export const ContentWrapper = styled.div`
 
   @media only screen and (min-width: 768px) {
     width: 22vw;
+    justify-content: center;
   }
 `;
 
-export const StyledA = styled.a`
+export const StyledLink = styled(Link)`
   display: block;
   text-decoration: none;
 `;

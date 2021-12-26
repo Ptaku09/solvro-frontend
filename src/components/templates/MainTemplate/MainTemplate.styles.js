@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { ReactComponent as RocketIcon } from 'assets/icons/rocket-svgrepo-com.svg';
+import { Link } from 'react-router-dom';
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -33,7 +34,7 @@ export const TopBarWrapper = styled.div`
   }
 `;
 
-export const TitleWrapper = styled.a`
+export const TitleWrapper = styled(Link)`
   text-decoration: none;
   display: flex;
   align-items: center;

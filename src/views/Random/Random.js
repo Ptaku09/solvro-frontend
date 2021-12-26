@@ -52,7 +52,7 @@ const Random = () => {
         title={article.title}
         publishedAt={article.publishedAt}
         desc={article.summary}
-        redaMore={article.url}
+        readMore={article.url}
       />
     </Wrapper>
   );

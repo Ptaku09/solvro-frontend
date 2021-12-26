@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ContentWrapper, StyledA, Wrapper } from 'components/molecules/Bookmark/Bookmark.styles';
+import { ContentWrapper, StyledLink, Wrapper } from 'components/molecules/Bookmark/Bookmark.styles';
 
 const Bookmark = ({ redirectTo, title, Icon }) => {
   return (
     <Wrapper>
-      <StyledA href={redirectTo}>
+      <StyledLink to={redirectTo}>
         <ContentWrapper>
           <Icon width="150px" />
           <h3>{title}</h3>
         </ContentWrapper>
-      </StyledA>
+      </StyledLink>
     </Wrapper>
   );
 };

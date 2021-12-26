@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Wrapper = styled.div`
   width: 100vw;
@@ -32,7 +33,7 @@ export const ContentWrapper = styled.div`
   }
 `;
 
-export const Redirect = styled.a`
+export const Redirect = styled(Link)`
   text-decoration: none;
   cursor: pointer;
   font-size: ${({ theme }) => theme.fontSize.l};

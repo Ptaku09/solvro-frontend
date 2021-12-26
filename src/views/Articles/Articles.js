@@ -16,7 +16,7 @@ import {
 } from 'views/Articles/Articles.styles';
 import { SectionTitle } from 'components/atoms/SectionTitle/SectionTitle';
 import Modal from 'components/organisms/Modal/Modal';
-import useModal from 'components/organisms/Modal/useModal';
+import useModal from 'hooks/useModal';
 import ArticleDetails from 'components/molecules/ArticleDetails/ArticleDetails';
 
 const Articles = () => {
@@ -92,7 +92,7 @@ const Articles = () => {
           title={currentArticle.title}
           publishedAt={currentArticle.publishedAt}
           desc={currentArticle.summary}
-          redaMore={currentArticle.url}
+          readMore={currentArticle.url}
         />
       </Modal>
     </Wrapper>
