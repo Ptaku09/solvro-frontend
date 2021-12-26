@@ -7,10 +7,10 @@ export const StyledInput = styled.input.attrs({ type: 'checkbox' })`
 export const Tick = styled.span`
   background-color: ${({ theme }) => theme.colors.darkGrey};
   border-radius: 10px;
-  height: ${({ isOpen }) => (isOpen ? '7px' : '9px')};
+  height: ${({ isOpen }) => (isOpen ? '7px' : '11px')};
   margin: 7px 0;
   transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-  border: ${({ isOpen, theme }) => (isOpen ? 'unset' : `1px solid ${theme.colors.white}`)};
+  border: ${({ isOpen, theme }) => (isOpen ? 'unset' : `2px solid ${theme.colors.white}`)};
 
   ${StyledInput}:checked + && {
     transform-origin: bottom;
@@ -53,10 +53,12 @@ export const Wrapper = styled.label`
   @keyframes appearing {
     0% {
       opacity: 0;
+      display: none;
     }
 
     100% {
       opacity: 1;
+      display: flex;
     }
   }
 

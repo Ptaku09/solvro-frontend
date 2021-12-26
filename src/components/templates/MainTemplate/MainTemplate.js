@@ -3,6 +3,7 @@ import { StyledRocketIcon, TitleWrapper, TopBarWrapper, Wrapper, Title } from 'c
 import Hamburger from 'components/organisms/Hamburger/Hamburger';
 import Menu from 'components/organisms/Menu/Menu';
 import { useLocation } from 'react-router-dom';
+import GoToTop from 'components/molecules/GoToTop/GoToTop';
 
 const MainTemplate = ({ children }) => {
   const location = useLocation();
@@ -23,6 +24,7 @@ const MainTemplate = ({ children }) => {
         </TitleWrapper>
       </TopBarWrapper>
       {children}
+      {path !== '/' ? <GoToTop /> : null}
     </Wrapper>
   );
 };
