@@ -36,14 +36,19 @@ export const Tick = styled.span`
 
 export const Wrapper = styled.label`
   position: fixed;
-  top: 45px;
-  left: 50px;
+  top: 25px;
+  left: 30px;
   display: flex;
   flex-direction: column;
   width: 70px;
   cursor: pointer;
   z-index: 21;
   animation: appearing 350ms;
+
+  @media only screen and (min-width: 768px) {
+    top: 45px;
+    left: 50px;
+  }
 
   @keyframes appearing {
     0% {

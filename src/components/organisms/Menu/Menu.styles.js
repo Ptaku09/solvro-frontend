@@ -13,7 +13,7 @@ export const overlay = {
 export const ModalWrapper = styled(ReactModal).attrs({
   closeTimeoutMS: 500,
 })`
-  width: 40vw;
+  width: 100vw;
   height: 100vh;
   min-height: 200px;
   display: flex;
@@ -22,9 +22,14 @@ export const ModalWrapper = styled(ReactModal).attrs({
   flex-direction: column;
   outline: none;
   z-index: 5;
-  background-color: rgba(200, 200, 200, 0.9);
+  background-color: rgba(255, 255, 255, 0.9);
   box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
   padding: 100px 0 60px 0;
+
+  @media only screen and (min-width: 768px) {
+    width: 40vw;
+    background-color: rgba(200, 200, 200, 0.9);
+  }
 `;
 
 export const StyledLink = styled(Link)`

@@ -9,6 +9,7 @@ const Menu = () => {
 
   const handleCloseMenu = () => {
     dispatch(toggleMenu());
+    document.body.style.overflow = 'unset';
   };
 
   return (
