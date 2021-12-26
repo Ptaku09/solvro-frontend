@@ -1,24 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleMenu } from 'store';
 import { StyledInput, Tick, Wrapper } from 'components/organisms/Hamburger/Hamburger.styles';
-import { useEffect, useState } from 'react';
+import useScrollPosition from 'hooks/useScrollPosition';
 
 const Hamburger = () => {
   const isOpen = useSelector((state) => state.menu);
   const dispatch = useDispatch();
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const handleScroll = () => {
-    const position = window.scrollY;
-    setScrollPosition(position);
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [scrollPosition]);
+  const { scrollPosition } = useScrollPosition();
 
   const handleOpenMenu = () => {
     dispatch(toggleMenu());

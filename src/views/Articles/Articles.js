@@ -16,7 +16,7 @@ import {
 } from 'views/Articles/Articles.styles';
 import { SectionTitle } from 'components/atoms/SectionTitle/SectionTitle';
 import Modal from 'components/organisms/Modal/Modal';
-import useModal from 'components/organisms/Modal/useModal';
+import useModal from 'hooks/useModal';
 import ArticleDetails from 'components/molecules/ArticleDetails/ArticleDetails';
 
 const Articles = () => {
