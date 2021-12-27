@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import FavoriteElement from 'components/molecules/FavoriteElement/FavoriteElement';
-import { SectionTitle } from 'components/atoms/SectionTitle/SectionTitle';
-import { ContentWrapper, Redirect, Wrapper } from 'views/Favorites/Favorites.styles';
+import { ContentWrapper, Redirect, StyledSectionTitle, Wrapper } from 'views/Favorites/Favorites.styles';
 import { useGetArticleByIdMutation } from 'store';
 import useModal from 'hooks/useModal';
 import Modal from 'components/organisms/Modal/Modal';
@@ -37,13 +36,13 @@ const Favorites = () => {
     <Wrapper>
       <ContentWrapper>
         {articlesId === null || articlesId.length === 0 ? (
-          <SectionTitle>
+          <StyledSectionTitle>
             No favorites :(
             <Redirect to="/articles">Go to articles</Redirect>
-          </SectionTitle>
+          </StyledSectionTitle>
         ) : (
           <>
-            <SectionTitle>Your Favorites</SectionTitle>
+            <StyledSectionTitle>Your Favorites</StyledSectionTitle>
             {articlesId.map((item) => (
               <FavoriteElement key={item} id={item} handleOpenArticleDetails={handleOpenArticleDetails} />
             ))}

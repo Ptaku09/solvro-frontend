@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useGetArticleByIdMutation, useGetArticlesCountQuery } from 'store';
 import ArticleDetails from 'components/molecules/ArticleDetails/ArticleDetails';
 import { Title } from 'components/atoms/Title/Title';
-import { Reload, Wrapper } from 'views/Random/Random.styles';
+import { Reload, Wrapper, ContentWrapper } from 'views/Random/Random.styles';
 
 const articleTemplate = {
   data: {
@@ -44,16 +44,18 @@ const Random = () => {
 
   return (
     <Wrapper>
-      <Reload onClick={() => window.location.reload()}>
-        <Title>{isLoading ? 'Loading...' : 'Another one!'}</Title>
-      </Reload>
-      <ArticleDetails
-        imageUrl={article.imageUrl}
-        title={article.title}
-        publishedAt={article.publishedAt}
-        desc={article.summary}
-        readMore={article.url}
-      />
+      <ContentWrapper>
+        <Reload onClick={() => window.location.reload()}>
+          <Title>{isLoading ? 'Loading...' : 'Another one!'}</Title>
+        </Reload>
+        <ArticleDetails
+          imageUrl={article.imageUrl}
+          title={article.title}
+          publishedAt={article.publishedAt}
+          desc={article.summary}
+          readMore={article.url}
+        />
+      </ContentWrapper>
     </Wrapper>
   );
 };

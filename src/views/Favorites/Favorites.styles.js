@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { SectionTitle } from 'components/atoms/SectionTitle/SectionTitle';
 
 export const Wrapper = styled.div`
   width: 100vw;
@@ -7,10 +8,16 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url('https://assets.codepen.io/1538474/star.svg'), linear-gradient(to bottom, #05007a, #4d007d);
+  background-attachment: fixed;
 
   @media only screen and (min-width: 768px) {
     width: 100%;
   }
+`;
+
+export const StyledSectionTitle = styled(SectionTitle)`
+  color: ${({ theme }) => theme.colors.darkGrey};
 `;
 
 export const ContentWrapper = styled.div`

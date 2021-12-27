@@ -1,14 +1,29 @@
-import React from 'react';
-import { ErrorType, StyledWrongPathIcon, TextWrapper, Wrapper } from 'views/WrongPath/WrongPath.styles';
+import React, { useEffect } from 'react';
+import { Wrapper, Mars, StyledIcon404, Title, Subtitle, StyledAstronaut, StyledSpaceship, TextWrapper } from 'views/WrongPath/WrongPath.styles';
+
+//CREDITS: https://codepen.io/AsyrafHussin/pen/KxWRrK
 
 const WrongPath = () => {
+  useEffect(() => {
+    setTimeout(() => {
+      window.scrollTo({
+        top: 150,
+        left: 0,
+        behavior: 'smooth',
+      });
+    }, 250);
+  }, []);
+
   return (
     <Wrapper>
-      <StyledWrongPathIcon />
+      <Mars />
+      <StyledIcon404 />
       <TextWrapper>
-        <ErrorType>404 Error</ErrorType>
-        <h2>Couldn't launch :(</h2>
+        <Title>Oh no!!</Title>
+        <Subtitle>Something goes wrong!</Subtitle>
       </TextWrapper>
+      <StyledAstronaut />
+      <StyledSpaceship />
     </Wrapper>
   );
 };
