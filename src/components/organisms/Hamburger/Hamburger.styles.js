@@ -6,11 +6,12 @@ export const StyledInput = styled.input.attrs({ type: 'checkbox' })`
 
 export const Tick = styled.span`
   background-color: ${({ theme }) => theme.colors.darkGrey};
-  border-radius: 10px;
   height: ${({ isOpen }) => (isOpen ? '7px' : '11px')};
   margin: 7px 0;
-  transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  border-radius: 10px;
   border: ${({ isOpen, theme }) => (isOpen ? 'unset' : `2px solid ${theme.colors.white}`)};
+  box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
+  transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
 
   ${StyledInput}:checked + && {
     transform-origin: bottom;

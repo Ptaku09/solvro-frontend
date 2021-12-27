@@ -7,15 +7,16 @@ export const Wrapper = styled.div`
   right: 20px;
   width: 70px;
   height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
   border-radius: 50%;
   background-color: ${({ theme }) => theme.colors.darkGrey};
   border: 2px solid ${({ theme }) => theme.colors.white};
   color: ${({ theme }) => theme.colors.white};
-  display: flex;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
-  padding: 2px;
+  box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
   animation: appearing 350ms;
 
   @media only screen and (min-width: 768px) {
