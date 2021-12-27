@@ -22,9 +22,15 @@ export const StyledIcon404 = styled(Icon404)`
   margin-right: auto;
   left: 0;
   right: 0;
-  top: 15%;
+  top: 10%;
   height: 20vh;
-  width: 35vw;
+  width: 55vw;
+
+  @media only screen and (min-width: 768px) {
+    top: 15%;
+    height: 20vh;
+    width: 35vw;
+  }
 `;
 
 export const Mars = styled.div`
@@ -58,15 +64,19 @@ export const Subtitle = styled.h4`
   color: white;
   font-weight: 400;
   text-align: center;
-  font-size: 3.5vmin;
+  font-size: ${({ theme }) => theme.fontSize.l};
   margin: 0;
 `;
 
 export const StyledAstronaut = styled(Astronaut)`
   position: absolute;
-  top: 25%;
-  left: 12%;
+  top: 22%;
+  left: 15%;
   animation: floating 3s infinite ease-in-out;
+
+  @media only screen and (min-width: 768px) {
+    top: 25%;
+  }
 
   @keyframes floating {
     from {
