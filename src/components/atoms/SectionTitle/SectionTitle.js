@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const SectionTitle = styled.h3`
   font-size: ${({ theme }) => theme.fontSize.xxl};
-  color: ${({ theme }) => theme.colors.darkGrey};
+  color: ${({ theme }) => theme.colors.white};
   text-align: center;
   display: flex;
   justify-content: center;

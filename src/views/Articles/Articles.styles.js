@@ -7,6 +7,8 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  background-image: url('https://assets.codepen.io/1538474/star.svg'), linear-gradient(to bottom, #05007a, #4d007d);
+  background-attachment: fixed;
 `;
 
 export const ArticlesWrapper = styled.div`
@@ -19,7 +21,7 @@ export const ArticlesWrapper = styled.div`
   &::before {
     content: '';
     width: 80%;
-    border-top: 2px solid ${({ theme }) => theme.colors.darkGrey};
+    border-top: 2px solid ${({ theme }) => theme.colors.white};
   }
 `;
 

@@ -13,12 +13,23 @@ export const Wrapper = styled.div`
   padding: 50px;
 
   @media only screen and (min-width: 768px) {
+    background-image: url('https://assets.codepen.io/1538474/star.svg'), linear-gradient(to bottom, #05007a, #4d007d);
+    background-attachment: fixed;
     display: unset;
     justify-content: unset;
     align-items: unset;
     height: 100vh;
     min-height: unset;
     width: 100%;
+  }
+`;
+
+export const ContentWrapper = styled.div`
+  @media only screen and (min-width: 768px) {
+    background-color: ${({ theme }) => theme.colors.lightGrey};
+    border-radius: 20px;
+    box-shadow: -3px -3px 10px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
   }
 `;
 
