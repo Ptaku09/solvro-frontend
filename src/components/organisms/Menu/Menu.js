@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toggleMenu } from 'store';
 import { ModalWrapper, overlay, StyledLink } from 'components/organisms/Menu/Menu.styles';
 
-const Menu = () => {
+const Menu = ({ path }) => {
   const isOpen = useSelector((state) => state.menu);
   const dispatch = useDispatch();
 
@@ -13,7 +13,7 @@ const Menu = () => {
   };
 
   return (
-    <ModalWrapper isOpen={isOpen} onRequestClose={handleCloseMenu} style={overlay} appElement={document.getElementById('root')}>
+    <ModalWrapper path={path} isOpen={isOpen} onRequestClose={handleCloseMenu} style={overlay} appElement={document.getElementById('root')}>
       <StyledLink to="/" onClick={handleCloseMenu}>
         Home
       </StyledLink>

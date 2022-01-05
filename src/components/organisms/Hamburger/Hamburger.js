@@ -3,7 +3,7 @@ import { toggleMenu } from 'store';
 import { StyledInput, Tick, Wrapper } from 'components/organisms/Hamburger/Hamburger.styles';
 import useScrollPosition from 'hooks/useScrollPosition';
 
-const Hamburger = () => {
+const Hamburger = ({ path }) => {
   const isOpen = useSelector((state) => state.menu);
   const dispatch = useDispatch();
   const { scrollPosition } = useScrollPosition();
@@ -16,7 +16,7 @@ const Hamburger = () => {
   return (
     <>
       {scrollPosition >= 150 || window.screen.width > 768 ? (
-        <Wrapper>
+        <Wrapper path={path}>
           <StyledInput onClick={handleOpenMenu} checked={isOpen} readOnly />
           <Tick isOpen={isOpen} />
           <Tick isOpen={isOpen} />

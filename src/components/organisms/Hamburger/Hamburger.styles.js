@@ -39,7 +39,7 @@ export const Wrapper = styled.label`
   position: fixed;
   top: 25px;
   left: 30px;
-  display: flex;
+  display: ${({ path }) => (path !== '/' ? 'flex' : 'none')};
   flex-direction: column;
   width: 70px;
   cursor: pointer;

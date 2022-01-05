@@ -16,7 +16,7 @@ export const ModalWrapper = styled(ReactModal).attrs({
   width: 100vw;
   height: 100vh;
   min-height: 200px;
-  display: flex;
+  display: ${({ path }) => (path !== '/' ? 'flex' : 'none')};
   align-items: center;
   justify-content: center;
   flex-direction: column;

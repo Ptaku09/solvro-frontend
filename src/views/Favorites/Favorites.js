@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import FavoriteElement from 'components/molecules/FavoriteElement/FavoriteElement';
 import { ContentWrapper, Redirect, StyledSectionTitle, Wrapper } from 'views/Favorites/Favorites.styles';
-import { useGetArticleByIdMutation } from 'store';
 import useModal from 'hooks/useModal';
 import Modal from 'components/organisms/Modal/Modal';
 import ArticleDetails from 'components/molecules/ArticleDetails/ArticleDetails';
+import axios from 'axios';
 
 const Favorites = () => {
   const [articlesId, setArticlesId] = useState([]);
   const [currentArticle, setCurrentArticle] = useState({});
-  const [getArticle] = useGetArticleByIdMutation();
   const { isModalOpen, handleOpenModal, handleCloseModal } = useModal();
 
   useEffect(() => {
@@ -25,11 +24,11 @@ const Favorites = () => {
     }, 250);
   }, []);
 
-  const handleOpenArticleDetails = async (id) => {
-    const article = await getArticle(id);
-
-    setCurrentArticle(article.data);
-    handleOpenModal();
+  const handleOpenArticleDetails = (id) => {
+    axios.get(`https://api.spaceflightnewsapi.net/v3/articles/${id}`).then(({ data }) => {
+      setCurrentArticle(data);
+      handleOpenModal();
+    });
   };
 
   return (

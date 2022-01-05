@@ -6,9 +6,7 @@ export const Wrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  padding: 10px;
-  position: absolute;
-  top: 80px;
+  padding: 30px 10px;
   width: 85%;
   min-height: 80%;
   height: auto;

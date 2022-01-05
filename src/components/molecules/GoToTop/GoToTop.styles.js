@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   right: 20px;
   width: 70px;
   height: 70px;
-  display: flex;
+  display: ${({ path }) => (path !== '/' ? 'flex' : 'none')};
   justify-content: center;
   align-items: center;
   padding: 2px;
