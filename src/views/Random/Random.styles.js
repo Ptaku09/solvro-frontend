@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Title } from 'components/atoms/Title/Title';
+import { Loading } from 'components/atoms/Loading/Loading';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -10,27 +11,40 @@ export const Wrapper = styled.div`
   height: auto;
   max-height: 100vh;
   min-height: 100vh;
-  padding: 50px;
+  padding: 50px 25px;
 
   @media only screen and (min-width: 768px) {
     background-image: url('https://assets.codepen.io/1538474/star.svg'), linear-gradient(to bottom, #05007a, #4d007d);
     background-attachment: fixed;
-    display: unset;
-    justify-content: unset;
-    align-items: unset;
     height: 100vh;
     min-height: unset;
     width: 100%;
+    padding: 50px;
   }
 `;
 
 export const ContentWrapper = styled.div`
+  background-color: ${({ theme }) => theme.colors.white};
+  width: 100%;
+  height: 90%;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: ${({ isLoading }) => (isLoading ? 'center' : 'flex-start')};
+  margin-top: 40px;
+  box-shadow: -3px -3px 10px 10px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+
   @media only screen and (min-width: 768px) {
-    background-color: ${({ theme }) => theme.colors.lightGrey};
-    border-radius: 20px;
-    box-shadow: -3px -3px 10px 10px rgba(0, 0, 0, 0.1);
     margin-top: 30px;
+    width: 90%;
+    height: 100%;
+    align-items: center;
   }
+`;
+
+export const StyledLoading = styled(Loading)`
+  box-shadow: -3px -3px 10px 10px rgba(0, 0, 0, 0.1);
 `;
 
 export const Reload = styled.div`

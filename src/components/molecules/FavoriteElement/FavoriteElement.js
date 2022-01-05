@@ -1,22 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useGetArticleByIdMutation } from 'store';
 import { ReadMore } from 'components/atoms/ReadMore/ReadMore';
 import { handleRemoveFromFavorites } from 'handlers/favorites/favorites';
 import { ButtonWrapper, StyledImg, Title, Wrapper } from 'components/molecules/FavoriteElement/FavoriteElement.styles';
 import { RemoveFavorite } from 'components/atoms/RemoveFavorite/RemoveFavorite';
+import axios from 'axios';
 
 const FavoriteElement = ({ id, handleOpenArticleDetails }) => {
-  const [getArticle] = useGetArticleByIdMutation();
   const [article, setArticle] = useState({});
 
   useEffect(() => {
-    const collectData = async () => {
-      return await getArticle(id);
-    };
-
-    collectData().then((res) => setArticle(res.data));
-  }, [getArticle, id]);
+    axios.get(`https://api.spaceflightnewsapi.net/v3/articles/${id}`).then(({ data }) => {
+      setArticle(data);
+    });
+  }, [id]);
 
   return (
     <Wrapper>

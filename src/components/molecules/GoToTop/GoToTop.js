@@ -2,7 +2,7 @@ import React from 'react';
 import useScrollPosition from 'hooks/useScrollPosition';
 import { StyledArrowUp, Wrapper } from 'components/molecules/GoToTop/GoToTop.styles';
 
-const GoToTop = () => {
+const GoToTop = ({ path }) => {
   const { scrollPosition } = useScrollPosition();
 
   const handleScrollToTop = () => {
@@ -16,7 +16,7 @@ const GoToTop = () => {
   return (
     <>
       {scrollPosition >= 350 ? (
-        <Wrapper onClick={handleScrollToTop}>
+        <Wrapper path={path} onClick={handleScrollToTop}>
           <StyledArrowUp onClick={handleScrollToTop} />
         </Wrapper>
       ) : null}

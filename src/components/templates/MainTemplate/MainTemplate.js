@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyledRocketIcon, TitleWrapper, TopBarWrapper, Wrapper, Title } from 'components/templates/MainTemplate/MainTemplate.styles';
+import { StyledRocketIcon, Title, TitleWrapper, TopBarWrapper, Wrapper } from 'components/templates/MainTemplate/MainTemplate.styles';
 import Hamburger from 'components/organisms/Hamburger/Hamburger';
 import Menu from 'components/organisms/Menu/Menu';
 import { useLocation } from 'react-router-dom';
@@ -15,8 +15,8 @@ const MainTemplate = ({ children }) => {
 
   return (
     <Wrapper>
-      {path !== '/' ? <Hamburger /> : null}
-      {path !== '/' ? <Menu /> : null}
+      <Hamburger path={path} />
+      <Menu path={path} />
       <TopBarWrapper>
         <TitleWrapper to="/">
           <Title>Spaceflight news</Title>
@@ -24,7 +24,7 @@ const MainTemplate = ({ children }) => {
         </TitleWrapper>
       </TopBarWrapper>
       {children}
-      {path !== '/' ? <GoToTop /> : null}
+      <GoToTop path={path} />
     </Wrapper>
   );
 };

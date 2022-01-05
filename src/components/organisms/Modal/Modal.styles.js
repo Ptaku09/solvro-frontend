@@ -32,12 +32,14 @@ export const ModalWrapper = styled(ReactModal).attrs({
   max-height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
+  padding-top: 10px;
 
   @media only screen and (min-width: 768px) {
     max-width: unset;
     max-height: unset;
     overflow-y: unset;
     overflow-x: unset;
+    padding-top: unset;
   }
 `;
 
