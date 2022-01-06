@@ -18,14 +18,14 @@ import Modal from 'components/organisms/Modal/Modal';
 import useModal from 'hooks/useModal';
 import ArticleDetails from 'components/molecules/ArticleDetails/ArticleDetails';
 import ErrorMessage from 'components/molecules/ErrorMessage/ErrorMessage';
-import useSpaceFlightNewsByAmountApi from 'hooks/useSpaceFlightNewsByAmountApi';
+import useSpaceflightNewsByAmountApi from 'hooks/useSpaceflightNewsByAmountApi';
 import axios from 'axios';
 
 const Articles = () => {
   const [currentArticle, setCurrentArticle] = useState({});
   const [onPage, setOnPage] = useState(10);
   const { isModalOpen, handleOpenModal, handleCloseModal } = useModal();
-  const [articlesData, isLoading, isError, setAmount] = useSpaceFlightNewsByAmountApi();
+  const [articlesData, isLoading, isError, setAmount] = useSpaceflightNewsByAmountApi();
 
   useEffect(() => {
     setTimeout(() => {

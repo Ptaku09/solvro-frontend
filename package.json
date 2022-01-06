@@ -23,7 +23,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "test:coverage": "CI=true npm test -- --env=jsdom --coverage"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,json}": [
@@ -51,6 +52,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "husky": "^4.3.8",
+    "jest-location-mock": "^1.0.9",
     "lint-staged": "^12.1.1",
     "prettier": "^2.4.1",
     "prop-types": "^15.7.2"

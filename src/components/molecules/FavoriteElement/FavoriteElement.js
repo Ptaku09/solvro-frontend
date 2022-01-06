@@ -1,28 +1,40 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { ButtonWrapper, StyledImg, Title, Wrapper } from 'components/molecules/FavoriteElement/FavoriteElement.styles';
+import axios from 'axios';
+import { RemoveFavorite } from 'components/atoms/RemoveFavorite/RemoveFavorite';
 import { ReadMore } from 'components/atoms/ReadMore/ReadMore';
 import { handleRemoveFromFavorites } from 'handlers/favorites/favorites';
-import { ButtonWrapper, StyledImg, Title, Wrapper } from 'components/molecules/FavoriteElement/FavoriteElement.styles';
-import { RemoveFavorite } from 'components/atoms/RemoveFavorite/RemoveFavorite';
-import axios from 'axios';
 
 const FavoriteElement = ({ id, handleOpenArticleDetails }) => {
   const [article, setArticle] = useState({});
+  const [error, setError] = useState(false);
 
   useEffect(() => {
-    axios.get(`https://api.spaceflightnewsapi.net/v3/articles/${id}`).then(({ data }) => {
-      setArticle(data);
-    });
+    axios
+      .get(`https://api.spaceflightnewsapi.net/v3/articles/${id}`)
+      .then(({ data }) => {
+        setArticle(data);
+      })
+      .catch(() => {
+        setError(true);
+      });
   }, [id]);
 
   return (
     <Wrapper>
-      <StyledImg src={article.imageUrl} alt={article.title} />
-      <Title>{article.title}</Title>
-      <ButtonWrapper>
-        <RemoveFavorite isbig="true" onClick={() => handleRemoveFromFavorites(id, true)} />
-        <ReadMore isbig="true" onClick={() => handleOpenArticleDetails(id)} />
-      </ButtonWrapper>
+      {error ? (
+        <Title>Something went wrong</Title>
+      ) : (
+        <>
+          <StyledImg src={article.imageUrl} alt={article.title} />
+          <Title>{article.title}</Title>
+          <ButtonWrapper>
+            <RemoveFavorite isbig="true" onClick={() => handleRemoveFromFavorites(id, true)} />
+            <ReadMore isbig="true" onClick={() => handleOpenArticleDetails(id)} />
+          </ButtonWrapper>
+        </>
+      )}
     </Wrapper>
   );
 };

@@ -162,9 +162,3 @@ export const Option = styled.div`
     background-color: ${({ theme }) => theme.colors.lightGrey};
   }
 `;
-
-export const StyledLabel = styled.h3`
-  font-size: ${({ theme }) => theme.fontSize.l};
-  color: ${({ theme }) => theme.colors.darkGrey};
-  margin: 0;
-`;
