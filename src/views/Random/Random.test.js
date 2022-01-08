@@ -5,8 +5,6 @@ import '@testing-library/jest-dom';
 import 'jest-location-mock';
 
 describe('Random article page', () => {
-  window.scrollTo = jest.fn();
-
   beforeEach(() => {
     axios.get.mockResolvedValue({
       data: {
@@ -62,22 +60,22 @@ describe('Random article page', () => {
   });
 
   it('scrolls down after load', async () => {
-    jest.useFakeTimers();
-    const { getByText } = render(<Random />);
-    jest.advanceTimersByTime(250);
+    render(<Random />);
+    window.scrollTo = jest.fn();
 
     await waitFor(() => {
-      expect(getByText(/Spaceflight/i)).toBeInTheDocument();
+      expect(window.scrollTo).toBeCalledWith({ behavior: 'smooth', left: 0, top: 150 });
     });
   });
 
   it('reloades the page on click', async () => {
+    window.location.reload = jest.fn();
     const { getByText } = render(<Random />);
 
     await waitFor(() => {
       fireEvent.click(getByText(/another/i));
     });
 
-    expect(getByText(/Test title/i)).toBeInTheDocument();
+    expect(window.location.reload).toHaveBeenCalled();
   });
 });

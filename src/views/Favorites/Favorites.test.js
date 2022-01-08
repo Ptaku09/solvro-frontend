@@ -5,8 +5,6 @@ import axios from 'axios';
 import { setAppElement } from 'react-modal';
 
 describe('Favorites page', () => {
-  window.scrollTo = jest.fn();
-
   beforeEach(() => {
     Object.defineProperty(window, 'localStorage', {
       value: {
@@ -68,12 +66,11 @@ describe('Favorites page', () => {
   });
 
   it('scrolls down after load', async () => {
-    jest.useFakeTimers();
-    const { getByText } = render(<Favorites />);
-    jest.advanceTimersByTime(250);
+    window.scrollTo = jest.fn();
+    render(<Favorites />);
 
     await waitFor(() => {
-      expect(getByText(/Spaceflight/i)).toBeInTheDocument();
+      expect(window.scrollTo).toBeCalledWith({ behavior: 'smooth', left: 0, top: 150 });
     });
   });
 

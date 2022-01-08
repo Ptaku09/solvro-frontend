@@ -3,8 +3,6 @@ import { render, waitFor } from 'test-utils';
 import '@testing-library/jest-dom';
 
 describe('Wrong path page', () => {
-  window.scrollTo = jest.fn();
-
   it('renders the wrong path page', async () => {
     const { getByText } = render(<WrongPath />);
 
@@ -14,12 +12,11 @@ describe('Wrong path page', () => {
   });
 
   it('scrolls down after load', async () => {
-    jest.useFakeTimers();
-    const { getByText } = render(<WrongPath />);
-    jest.advanceTimersByTime(250);
+    window.scrollTo = jest.fn();
+    render(<WrongPath />);
 
     await waitFor(() => {
-      expect(getByText(/Spaceflight/i)).toBeInTheDocument();
+      expect(window.scrollTo).toBeCalledWith({ behavior: 'smooth', left: 0, top: 150 });
     });
   });
 });

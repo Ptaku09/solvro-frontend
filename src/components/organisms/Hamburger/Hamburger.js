@@ -16,7 +16,7 @@ const Hamburger = ({ path }) => {
   return (
     <>
       {scrollPosition >= 150 || window.screen.width > 768 ? (
-        <Wrapper path={path}>
+        <Wrapper path={path} aria-label="wrapper">
           <StyledInput onClick={handleOpenMenu} checked={isOpen} readOnly />
           <Tick isOpen={isOpen} />
           <Tick isOpen={isOpen} />

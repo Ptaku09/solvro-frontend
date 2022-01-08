@@ -78,13 +78,14 @@ describe('Articles page', () => {
   });
 
   it('reloades the page on click', async () => {
+    window.location.reload = jest.fn();
     const { getByText } = render(<Articles />);
 
     await waitFor(() => {
       fireEvent.click(getByText(/reload-svgrepo-com.svg/i));
     });
 
-    expect(getByText(/Test/i)).toBeInTheDocument();
+    expect(window.location.reload).toHaveBeenCalled();
   });
 
   it('changes the number of articles', async () => {
@@ -106,12 +107,10 @@ describe('Articles page', () => {
   });
 
   it('scrolls down after load', async () => {
-    jest.useFakeTimers();
-    const { getByText } = render(<Articles />);
-    jest.advanceTimersByTime(250);
+    render(<Articles />);
 
     await waitFor(() => {
-      expect(getByText(/Spaceflight/i)).toBeInTheDocument();
+      expect(window.scrollTo).toBeCalledWith({ behavior: 'smooth', left: 0, top: 150 });
     });
   });
 });
