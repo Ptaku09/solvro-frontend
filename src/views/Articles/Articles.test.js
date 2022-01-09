@@ -51,8 +51,9 @@ describe('Articles page', () => {
     });
   });
 
-  it('opens the modal on click', async () => {
+  it('opens/closes the modal on click', async () => {
     const { getByText } = render(<Articles />);
+    let desc;
 
     axios.get.mockResolvedValueOnce({
       data: {
@@ -73,12 +74,96 @@ describe('Articles page', () => {
     });
 
     await waitFor(() => {
-      expect(getByText(/The upcoming/i)).toBeInTheDocument();
+      desc = getByText(/The upcoming/i);
+      expect(desc).toBeInTheDocument();
+    });
+
+    fireEvent.click(getByText(/close/i));
+
+    await waitFor(() => {
+      expect(desc).not.toBeInTheDocument();
     });
   });
 
+  it("adds/removes article to favorites when key: 'favorites' does exist", async () => {
+    Object.defineProperty(window, 'localStorage', {
+      value: {
+        getItem: jest.fn(() => JSON.stringify([1234])),
+        setItem: jest.fn(() => null),
+      },
+      writable: true,
+    });
+
+    const { getByText } = render(<Articles />);
+
+    await waitFor(() => {
+      fireEvent.click(getByText(/add-to-favourites-svgrepo-com.svg/i));
+    });
+
+    Object.defineProperty(window, 'localStorage', {
+      value: {
+        getItem: jest.fn(() => JSON.stringify([1234, 123])),
+        setItem: jest.fn(() => null),
+      },
+      writable: true,
+    });
+
+    fireEvent.click(getByText('remove-button-svgrepo-com.svg'));
+  });
+
+  it('does not add/remove same article twice to favorites', async () => {
+    Object.defineProperty(window, 'localStorage', {
+      value: {
+        getItem: jest.fn(() => JSON.stringify([123])),
+        setItem: jest.fn(() => null),
+      },
+      writable: true,
+    });
+
+    const { getByText } = render(<Articles />);
+
+    await waitFor(() => {
+      fireEvent.click(getByText(/add-to-favourites-svgrepo-com.svg/i));
+    });
+
+    Object.defineProperty(window, 'localStorage', {
+      value: {
+        getItem: jest.fn(() => JSON.stringify([])),
+        setItem: jest.fn(() => null),
+      },
+      writable: true,
+    });
+
+    fireEvent.click(getByText('remove-button-svgrepo-com.svg'));
+  });
+
+  it("adds/removes article to favorites when key: 'favorites' does not exist", async () => {
+    Object.defineProperty(window, 'localStorage', {
+      value: {
+        getItem: jest.fn(() => null),
+        setItem: jest.fn(() => null),
+      },
+      writable: true,
+    });
+
+    const { getByText } = render(<Articles />);
+
+    await waitFor(() => {
+      fireEvent.click(getByText(/add-to-favourites-svgrepo-com.svg/i));
+    });
+
+    Object.defineProperty(window, 'localStorage', {
+      value: {
+        getItem: jest.fn(() => JSON.stringify([123])),
+        setItem: jest.fn(() => null),
+      },
+      writable: true,
+    });
+
+    fireEvent.click(getByText('remove-button-svgrepo-com.svg'));
+  });
+
   it('reloades the page on click', async () => {
-    window.location.reload = jest.fn();
     const { getByText } = render(<Articles />);
 
     await waitFor(() => {

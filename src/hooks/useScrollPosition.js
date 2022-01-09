@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
-const useScrollPosition = (initialState = 0) => {
-  const [scrollPosition, setScrollPosition] = useState(initialState);
+const useScrollPosition = () => {
+  const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
     window.addEventListener('scroll', () => setScrollPosition(window.scrollY));

@@ -61,7 +61,7 @@ describe('Favorites page', () => {
     expect(window.localStorage.getItem).toHaveBeenCalledTimes(1);
 
     await waitFor(() => {
-      expect(getByText(/test/i)).toBeInTheDocument();
+      expect(getByText(/Test Title/i)).toBeInTheDocument();
     });
   });
 

@@ -14,7 +14,7 @@ describe('Hamburger component', () => {
     });
   });
 
-  afterAll(() => {
+  afterEach(() => {
     jest.clearAllMocks();
   });
 
