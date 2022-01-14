@@ -7,15 +7,13 @@ import { handleAddToFavorites, handleRemoveFromFavorites } from 'handlers/favori
 import { RemoveFavorite } from 'components/atoms/RemoveFavorite/RemoveFavorite';
 
 const Article = ({ id, title, imgSrc, handleOpenArticleDetails }) => {
-  const [status, setStatus] = useState('');
+  const [status, setStatus] = useState('normal');
 
   useEffect(() => {
     const data = localStorage.getItem('favorites');
 
     if (data && data.includes(id)) {
       setStatus('favorite');
-    } else if (data) {
-      setStatus('normal');
     }
   }, [id]);
 

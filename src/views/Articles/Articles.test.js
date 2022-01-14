@@ -27,9 +27,6 @@ describe('Articles page', () => {
 
   afterEach(() => {
     axios.get.mockClear();
-  });
-
-  afterAll(() => {
     jest.clearAllMocks();
   });
 
@@ -82,6 +79,32 @@ describe('Articles page', () => {
 
     await waitFor(() => {
       expect(desc).not.toBeInTheDocument();
+    });
+  });
+
+  it("opens modal when 'read more' button is clicked", async () => {
+    const { getByText } = render(<Articles />);
+
+    axios.get.mockResolvedValueOnce({
+      data: {
+        id: 123,
+        title: 'Test Title',
+        url: 'https://google.com',
+        imageUrl: 'https://spacenews.com/wp-content/uploads/2022/01/callisto-orion.jpg',
+        newsSite: 'SpaceNews',
+        summary:
+          'The upcoming unscrewed test flight of the Orion spacecraft will include a payload to see how a voice recognition technology widely available to consumers today could be used to assist astronauts on future missions.',
+        publishedAt: '2022-01-05T13:06:44.000Z',
+      },
+    });
+
+    await waitFor(() => {
+      setAppElement('body');
+      fireEvent.click(getByText(/next-svgrepo-com.svg/i));
+    });
+
+    await waitFor(() => {
+      expect(getByText(/close/i)).toBeInTheDocument();
     });
   });
 
