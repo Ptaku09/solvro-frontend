@@ -1,6 +1,5 @@
 # Spaceflight News
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Try it in your browser ---> [link](https://61e31662459f63000896fc49--unruffled-jepsen-8b7a17.netlify.app/)
 
 ## Development Guide
 1. `npm install`
@@ -24,3 +23,11 @@ Launches Cypress tests.
 
 4. `npm run build`\
 Builds the app for production to the `build` folder.
+
+
+### Tech Stack
+- React
+- Redux Toolkit Query
+- Axios
+- Styled components
+- Jest & Cypress
