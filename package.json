@@ -23,6 +23,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:coverage": "CI=true npm test -- --env=jsdom --coverage",
+    "test:e2e": "cypress open --project ./src/e2e",
     "eject": "react-scripts eject"
   },
   "lint-staged": {
@@ -34,6 +36,12 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!src/index.js"
+    ]
   },
   "browserslist": {
     "production": [
@@ -48,9 +56,15 @@
     ]
   },
   "devDependencies": {
+    "@cypress/react": "^5.12.1",
+    "@cypress/webpack-dev-server": "^1.8.0",
+    "@testing-library/cypress": "^8.0.2",
+    "cypress": "^9.2.1",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-prettier": "^4.0.0",
     "husky": "^4.3.8",
+    "jest-location-mock": "^1.0.9",
     "lint-staged": "^12.1.1",
     "prettier": "^2.4.1",
     "prop-types": "^15.7.2"

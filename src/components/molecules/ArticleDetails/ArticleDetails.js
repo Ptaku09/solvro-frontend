@@ -12,7 +12,7 @@ const ArticleDetails = ({ imageUrl, title, publishedAt, desc, readMore }) => {
   return (
     <Wrapper>
       <PhotoWrapper>
-        <StyledPhoto src={imageUrl} onClick={() => window.open(imageUrl, '_blank')} />
+        <StyledPhoto src={imageUrl} onClick={() => window.open(imageUrl, '_blank')} alt={title} />
       </PhotoWrapper>
       <DataWrapper>
         <StyledTitle>{title}</StyledTitle>

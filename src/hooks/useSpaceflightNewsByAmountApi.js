@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const useSpaceFlightNewsByAmountApi = (initialState = 10) => {
+const useSpaceflightNewsByAmountApi = (initialState = 10) => {
   const [data, setData] = useState([]);
   const [amount, setAmount] = useState(initialState);
   const [isLoading, setLoading] = useState(true);
@@ -23,4 +23,4 @@ const useSpaceFlightNewsByAmountApi = (initialState = 10) => {
   return [data, isLoading, isError, setAmount];
 };
 
-export default useSpaceFlightNewsByAmountApi;
+export default useSpaceflightNewsByAmountApi;
