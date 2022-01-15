@@ -5,8 +5,9 @@ import { GlobalStyle } from 'assets/styles/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import PropTypes from 'prop-types';
 
-const AppProviders = ({ children }) => {
+const AppProvidersWithoutTemplate = ({ children }) => {
   return (
     <Provider store={store}>
       <Router>
@@ -19,4 +20,8 @@ const AppProviders = ({ children }) => {
   );
 };
 
-export default AppProviders;
+AppProvidersWithoutTemplate.propTypes = {
+  children: PropTypes.object.isRequired,
+};
+
+export default AppProvidersWithoutTemplate;

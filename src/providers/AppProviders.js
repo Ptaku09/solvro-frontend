@@ -6,6 +6,7 @@ import MainTemplate from 'components/templates/MainTemplate/MainTemplate';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import PropTypes from 'prop-types';
 
 const AppProviders = ({ children }) => {
   return (
@@ -20,6 +21,10 @@ const AppProviders = ({ children }) => {
       </Router>
     </Provider>
   );
+};
+
+AppProviders.propTypes = {
+  children: PropTypes.object.isRequired,
 };
 
 export default AppProviders;

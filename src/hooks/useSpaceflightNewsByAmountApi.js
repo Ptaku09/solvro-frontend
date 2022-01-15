@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
 const useSpaceflightNewsByAmountApi = (initialState = 10) => {
   const [data, setData] = useState([]);
@@ -21,6 +22,10 @@ const useSpaceflightNewsByAmountApi = (initialState = 10) => {
   }, [amount]);
 
   return [data, isLoading, isError, setAmount];
+};
+
+useSpaceflightNewsByAmountApi.propTypes = {
+  initialState: PropTypes.number,
 };
 
 export default useSpaceflightNewsByAmountApi;

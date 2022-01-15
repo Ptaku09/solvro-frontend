@@ -1,6 +1,7 @@
 import React from 'react';
 import useScrollPosition from 'hooks/useScrollPosition';
 import { StyledArrowUp, Wrapper } from 'components/molecules/GoToTop/GoToTop.styles';
+import PropTypes from 'prop-types';
 
 const GoToTop = ({ path }) => {
   const { scrollPosition } = useScrollPosition();
@@ -22,6 +23,10 @@ const GoToTop = ({ path }) => {
       ) : null}
     </>
   );
+};
+
+GoToTop.propTypes = {
+  path: PropTypes.string.isRequired,
 };
 
 export default GoToTop;

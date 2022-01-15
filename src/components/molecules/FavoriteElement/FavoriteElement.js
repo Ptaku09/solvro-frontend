@@ -41,6 +41,7 @@ const FavoriteElement = ({ id, handleOpenArticleDetails }) => {
 
 FavoriteElement.propTypes = {
   id: PropTypes.number.isRequired,
+  handleOpenArticleDetails: PropTypes.func.isRequired,
 };
 
 export default FavoriteElement;

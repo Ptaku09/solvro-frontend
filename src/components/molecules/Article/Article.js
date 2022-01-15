@@ -45,6 +45,7 @@ Article.propTypes = {
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   imgSrc: PropTypes.string.isRequired,
+  handleOpenArticleDetails: PropTypes.func.isRequired,
 };
 
 export default Article;

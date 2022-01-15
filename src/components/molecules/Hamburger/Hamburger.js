@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleMenu } from 'store';
-import { StyledInput, Tick, Wrapper } from 'components/organisms/Hamburger/Hamburger.styles';
+import { StyledInput, Tick, Wrapper } from 'components/molecules/Hamburger/Hamburger.styles';
 import useScrollPosition from 'hooks/useScrollPosition';
+import PropTypes from 'prop-types';
 
 const Hamburger = ({ path }) => {
   const isOpen = useSelector((state) => state.menu);
@@ -25,6 +26,10 @@ const Hamburger = ({ path }) => {
       ) : null}
     </>
   );
+};
+
+Hamburger.propTypes = {
+  path: PropTypes.string.isRequired,
 };
 
 export default Hamburger;

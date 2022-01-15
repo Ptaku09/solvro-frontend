@@ -1,4 +1,4 @@
-import Hamburger from 'components/organisms/Hamburger/Hamburger';
+import Hamburger from 'components/molecules/Hamburger/Hamburger';
 import { renderWithoutTemplate, waitFor } from 'test-utils';
 import '@testing-library/jest-dom';
 import { fireEvent } from '@testing-library/react';

@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const handleAddToFavorites = (id) => {
   const data = JSON.parse(localStorage.getItem('favorites'));
 
@@ -20,4 +22,13 @@ export const handleRemoveFromFavorites = (id, reload = false) => {
       window.location.reload();
     }
   }
+};
+
+handleAddToFavorites.propTypes = {
+  id: PropTypes.number.isRequired,
+};
+
+handleRemoveFromFavorites.propTypes = {
+  id: PropTypes.number.isRequired,
+  reload: PropTypes.bool,
 };

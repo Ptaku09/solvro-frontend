@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const useModal = (initialState = false) => {
   const [isModalOpen, setModalState] = useState(initialState);
@@ -18,6 +19,10 @@ const useModal = (initialState = false) => {
     handleOpenModal,
     handleCloseModal,
   };
+};
+
+useModal.propTypes = {
+  initialState: PropTypes.bool,
 };
 
 export default useModal;

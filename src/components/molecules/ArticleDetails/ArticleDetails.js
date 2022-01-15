@@ -25,7 +25,11 @@ const ArticleDetails = ({ imageUrl, title, publishedAt, desc, readMore }) => {
 };
 
 ArticleDetails.propTypes = {
-  data: PropTypes.object,
+  imageUrl: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  publishedAt: PropTypes.string.isRequired,
+  desc: PropTypes.string.isRequired,
+  readMore: PropTypes.string.isRequired,
 };
 
 export default ArticleDetails;
