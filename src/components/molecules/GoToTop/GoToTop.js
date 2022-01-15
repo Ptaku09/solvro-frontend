@@ -16,7 +16,7 @@ const GoToTop = ({ path }) => {
   return (
     <>
       {scrollPosition >= 350 ? (
-        <Wrapper path={path} onClick={handleScrollToTop} aria-label="wrapper">
+        <Wrapper path={path} position={scrollPosition} onClick={handleScrollToTop} aria-label="wrapper">
           <StyledArrowUp onClick={handleScrollToTop} />
         </Wrapper>
       ) : null}

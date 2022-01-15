@@ -4,7 +4,7 @@ import { Title } from 'components/atoms/Title/Title';
 
 export const StyledPhoto = styled.img`
   width: 100%;
-  height: auto;
+  height: 55%;
   margin-top: 5px;
   object-fit: cover;
   border: 5px solid ${({ theme }) => theme.colors.black};

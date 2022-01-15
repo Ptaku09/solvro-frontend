@@ -5,8 +5,8 @@ export const Wrapper = styled.div`
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   display: ${({ path }) => (path !== '/' ? 'flex' : 'none')};
   justify-content: center;
   align-items: center;
@@ -18,10 +18,14 @@ export const Wrapper = styled.div`
   cursor: pointer;
   box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
   animation: appearing 350ms;
+  transition: display ease-in-out;
+  transition-duration: 350ms;
 
   @media only screen and (min-width: 768px) {
     bottom: 40px;
     right: 40px;
+    width: 70px;
+    height: 70px;
   }
 
   @keyframes appearing {
